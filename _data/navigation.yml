@@ -10,8 +10,5 @@ main:
   - title: "Competitions"
     url: /competitions/
 
-  - title: "Patents"
-    url: /patents/
-
   - title: "Others"
     url: /others/
