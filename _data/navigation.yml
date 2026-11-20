@@ -1,6 +1,9 @@
 # The following is the order of the links in the header of the website.
 
 main:
+  - title: "Blog"
+    url: /blog/
+
   - title: "Publications"
     url: /publications/
 
@@ -9,9 +12,6 @@ main:
 
   - title: "Patents"
     url: /patents/
-
-  - title: "Blog"
-    url: /blog/
 
   - title: "Others"
     url: /others/
