@@ -60,16 +60,24 @@ body {
   margin-bottom: 0.6em;
 }
 
-/* Links */
+/* Links: no underline on hover or click; only keyboard focus shows a ring */
 .page__content a,
 .archive a {
   color: var(--custom-accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
 
-  &:hover {
-    border-bottom-color: currentColor;
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--global-link-color-hover);
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
 }
 
