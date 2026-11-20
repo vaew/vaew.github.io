@@ -13,7 +13,6 @@ Built with [Jekyll](https://jekyllrb.com/) on the [Academic Pages](https://githu
 | Home page | `_pages/about.md` |
 | Publications (one file per paper) | `_publications/` |
 | Competitions & awards | `_pages/competitions.md` |
-| Patents | `_pages/patents.md` |
 | Academic service | `_includes/academic-service.md` |
 | Others page | `_pages/cv.md` |
 | Blog posts | `_posts/YYYY-MM-DD-title.md` |
