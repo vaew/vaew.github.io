@@ -5,7 +5,7 @@ permalink: /competitions/
 author_profile: true
 ---
 
-<p class="comp-summary">🏆 累计获得竞赛奖金<strong>数百万元</strong>，国内外Top3/金/银/铜 <strong>20</strong> 次</p>
+<p class="comp-summary">🏆 累计获得竞赛奖金<strong>数百万元</strong>，国内外 Top3 <strong>20</strong> 次</p>
 
 Selected Competitions
 ======
