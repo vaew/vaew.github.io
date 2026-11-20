@@ -1,0 +1,355 @@
+/* ==========================================================================
+   Site-specific typography and layout refinements
+   ========================================================================== */
+
+:root {
+  --custom-accent: #2b5876;
+  --custom-accent-soft: rgba(43, 88, 118, 0.08);
+}
+
+html[data-theme="dark"] {
+  --custom-accent: #8fc1e3;
+  --custom-accent-soft: rgba(143, 193, 227, 0.1);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.page__content {
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+
+  p, li {
+    font-size: 1em;
+  }
+
+  li {
+    margin-bottom: 0.35em;
+  }
+
+  /* Section headings ("Title\n======" in Markdown) */
+  h1, h2 {
+    font-family: $serif;
+    font-weight: 700;
+    color: #111;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--global-border-color);
+  }
+
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.25em; }
+
+  small {
+    color: var(--global-text-color-light);
+  }
+}
+
+/* Page title and section headings share one size and colour. */
+.page__title,
+.archive > h1 {
+  font-family: $serif;
+  font-weight: 700;
+  font-size: 1.6em;
+  color: #111;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6em;
+}
+
+/* Links */
+.page__content a,
+.archive a {
+  color: var(--custom-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+  &:hover {
+    border-bottom-color: currentColor;
+  }
+}
+
+/* Navigation */
+.greedy-nav {
+  a {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .masthead__menu-item--lg a {
+    font-family: $serif;
+    font-weight: 700;
+    font-size: 1.15em;
+  }
+}
+
+/* Sidebar */
+.sidebar .author__name {
+  font-family: $serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+}
+
+.sidebar .author__bio {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: var(--global-text-color-light);
+}
+
+/* Portrait photo (shows shoulders), so a rounded rectangle instead of a circle */
+.author__avatar img {
+  border-radius: 12px;
+  border: 3px solid var(--global-border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar .author__urls a {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* Publication / post lists */
+.archive {
+  h2:not(.archive__item-title) {
+    font-family: $serif;
+    color: var(--custom-accent);
+    margin-top: 1.8em;
+  }
+
+  .archive__subtitle {
+    border-bottom: 1px solid var(--global-border-color);
+  }
+}
+
+.list__item .archive__item {
+  padding: 0.9em 1.1em;
+  margin-bottom: 1em;
+  border-left: 3px solid var(--custom-accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--custom-accent-soft);
+
+  p {
+    margin: 0.35em 0;
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+}
+
+.archive__item-title {
+  margin: 0 0 0.25em;
+  font-family: $global-font-family;
+  font-size: 1.05em;
+  font-weight: 600;
+  line-height: 1.45;
+  border-bottom: 0;
+}
+
+.archive__item-excerpt {
+  font-size: 0.92em;
+}
+
+/* Publications page: number entries 1, 2, 3 … across all categories */
+.pub-numbered {
+  counter-reset: pub;
+
+  /* Flex drops the template's whitespace between the number and the title link. */
+  .archive__item-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35em;
+  }
+
+  .archive__item-title::before {
+    counter-increment: pub;
+    content: counter(pub) ".";
+    flex-shrink: 0;
+    color: var(--custom-accent);
+    font-weight: 700;
+  }
+}
+
+/* Competitions page: one line per entry; full text is in the row's title tooltip */
+.comp-summary {
+  margin: 0 0 1.2em;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(212, 160, 23, 0.16), rgba(212, 160, 23, 0.03));
+  border-left: 3px solid #d4a017;
+  font-size: 1em;
+
+  strong {
+    color: #b8860b;
+  }
+}
+
+ul.comp-list {
+  list-style: none;
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+ul.comp-list li.comp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  margin: 0;
+  padding: 0.5em 0.3em;
+  border-bottom: 1px solid var(--global-border-color);
+  line-height: 1.5;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--custom-accent-soft);
+  }
+}
+
+.comp-year {
+  flex-shrink: 0;
+  width: 2.8em;
+  color: var(--global-text-color-light);
+  font-size: 0.85em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.comp-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.92em;
+}
+
+.comp-name {
+  font-weight: 600;
+}
+
+.comp-track {
+  margin-left: 0.6em;
+  color: var(--global-text-color-light);
+  font-size: 0.92em;
+
+  &::before {
+    content: "· ";
+  }
+}
+
+.comp-badges {
+  flex-shrink: 0;
+  display: flex;
+  gap: 0.4em;
+}
+
+.comp-result,
+.comp-prize {
+  padding: 0.12em 0.65em;
+  border-radius: 999px;
+  font-size: 0.76em;
+  font-weight: 600;
+}
+
+.comp-result {
+  background: var(--custom-accent);
+  color: #fff;
+}
+
+.comp-prize {
+  background: #fdf3d7;
+  color: #8a6408;
+  border: 1px solid #e8c766;
+}
+
+/* Patents page */
+.patent-list {
+  counter-reset: none;
+}
+
+.patent-card {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 0.9em;
+  padding: 0.9em 1.1em;
+  border: 1px solid var(--global-border-color);
+  border-left: 3px solid var(--custom-accent);
+  border-radius: 0 8px 8px 0;
+  background: #fff;
+  transition: box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.patent-index {
+  flex-shrink: 0;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 50%;
+  background: var(--custom-accent-soft);
+  color: var(--custom-accent);
+  font-weight: 700;
+  font-size: 0.85em;
+  line-height: 1.9em;
+  text-align: center;
+}
+
+.patent-body {
+  min-width: 0;
+}
+
+.patent-title {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.patent-inventors {
+  margin-top: 0.2em;
+  color: var(--global-text-color-light);
+  font-size: 0.85em;
+
+  b {
+    color: var(--global-text-color);
+  }
+}
+
+.patent-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.5em;
+  font-size: 0.78em;
+}
+
+.patent-number {
+  padding: 0.1em 0.5em;
+  border-radius: 4px;
+  background: var(--global-code-background-color);
+  font-size: 1em;
+}
+
+.patent-kind {
+  color: var(--global-text-color-light);
+}
+
+.patent-status {
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  font-weight: 600;
+
+  &--granted  { background: #e3f4e8; color: #1f7a3d; }
+  &--pending  { background: #fdf3d7; color: #8a6408; }
+  &--software { background: #e6eef8; color: #2b5876; }
+}
+
+/* Publications page intro lines */
+.archive p.pub-intro {
+  margin: 0 0 0.4em;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: var(--global-text-color);
+}

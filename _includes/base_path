@@ -1,0 +1,1 @@
+{% comment %}Root-relative so assets (incl. fonts) are same-origin however the site is opened.{% endcomment %}{% assign base_path = site.baseurl %}

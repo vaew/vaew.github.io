@@ -1,0 +1,17 @@
+# The following is the order of the links in the header of the website.
+
+main:
+  - title: "Publications"
+    url: /publications/
+
+  - title: "Competitions"
+    url: /competitions/
+
+  - title: "Patents"
+    url: /patents/
+
+  - title: "Blog"
+    url: /blog/
+
+  - title: "Others"
+    url: /others/
