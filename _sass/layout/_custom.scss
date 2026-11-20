@@ -160,6 +160,11 @@ body {
   font-size: 0.92em;
 }
 
+/* The template underlines list titles on hover/click; keep them plain. */
+.archive__item:hover .archive__item-title {
+  text-decoration: none;
+}
+
 /* Publications page: number entries 1, 2, 3 … across all categories */
 .pub-numbered {
   counter-reset: pub;
@@ -271,25 +276,15 @@ ul.comp-list li.comp-item {
   border: 1px solid #e8c766;
 }
 
-/* Patents page */
-.patent-list {
-  counter-reset: none;
-}
-
+/* Patents page: cards match the publication list */
 .patent-card {
   display: flex;
   gap: 1em;
-  margin-bottom: 0.9em;
+  margin-bottom: 1em;
   padding: 0.9em 1.1em;
-  border: 1px solid var(--global-border-color);
   border-left: 3px solid var(--custom-accent);
-  border-radius: 0 8px 8px 0;
-  background: #fff;
-  transition: box-shadow 0.15s ease-in-out;
-
-  &:hover {
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-  }
+  border-radius: 0 6px 6px 0;
+  background: var(--custom-accent-soft);
 }
 
 .patent-index {
@@ -297,7 +292,7 @@ ul.comp-list li.comp-item {
   width: 1.9em;
   height: 1.9em;
   border-radius: 50%;
-  background: var(--custom-accent-soft);
+  background: #fff;
   color: var(--custom-accent);
   font-weight: 700;
   font-size: 0.85em;
@@ -314,44 +309,18 @@ ul.comp-list li.comp-item {
   line-height: 1.5;
 }
 
-.patent-inventors {
-  margin-top: 0.2em;
+/* Inventors · number · type · status, all grey on one line */
+.patent-meta {
+  margin-top: 0.3em;
+  overflow: hidden;
   color: var(--global-text-color-light);
-  font-size: 0.85em;
+  font-size: 0.82em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   b {
-    color: var(--global-text-color);
+    color: inherit;
   }
-}
-
-.patent-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5em;
-  margin-top: 0.5em;
-  font-size: 0.78em;
-}
-
-.patent-number {
-  padding: 0.1em 0.5em;
-  border-radius: 4px;
-  background: var(--global-code-background-color);
-  font-size: 1em;
-}
-
-.patent-kind {
-  color: var(--global-text-color-light);
-}
-
-.patent-status {
-  padding: 0.1em 0.6em;
-  border-radius: 999px;
-  font-weight: 600;
-
-  &--granted  { background: #e3f4e8; color: #1f7a3d; }
-  &--pending  { background: #fdf3d7; color: #8a6408; }
-  &--software { background: #e6eef8; color: #2b5876; }
 }
 
 /* Publications page intro lines */
