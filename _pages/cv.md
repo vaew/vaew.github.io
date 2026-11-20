@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Others"
+hide_title: true
 permalink: /others/
 author_profile: true
 redirect_from:
