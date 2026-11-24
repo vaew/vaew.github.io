@@ -270,6 +270,15 @@ ul.comp-list li.comp-item {
   color: #fff;
 }
 
+.comp-solo {
+  padding: 0.12em 0.65em;
+  border-radius: 999px;
+  border: 1px solid var(--custom-accent);
+  color: var(--custom-accent);
+  font-size: 0.76em;
+  font-weight: 600;
+}
+
 .comp-prize {
   background: #fdf3d7;
   color: #8a6408;
@@ -329,4 +338,20 @@ ul.comp-list li.comp-item {
   font-size: 0.95em;
   line-height: 1.6;
   color: var(--global-text-color);
+}
+
+/* Homepage: 2026 publications list */
+.pub-2026 {
+  margin: 0.4em 0 1.2em;
+  padding-left: 1.4em;
+
+  li {
+    margin-bottom: 0.7em;
+    line-height: 1.5;
+  }
+
+  li::marker {
+    color: var(--custom-accent);
+    font-weight: 700;
+  }
 }
