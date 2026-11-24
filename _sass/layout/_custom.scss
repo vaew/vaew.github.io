@@ -103,7 +103,7 @@ body {
 }
 
 .sidebar .author__bio {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   white-space: nowrap;
   color: var(--global-text-color-light);
 }
@@ -333,25 +333,117 @@ ul.comp-list li.comp-item {
 }
 
 /* Publications page intro lines */
-.archive p.pub-intro {
+.archive p.pub-intro,
+.page__content p.pub-intro {
   margin: 0 0 0.4em;
   font-size: 0.95em;
   line-height: 1.6;
   color: var(--global-text-color);
 }
 
-/* Homepage: 2026 publications list */
+/* Homepage: 2026 publication cards */
 .pub-2026 {
-  margin: 0.4em 0 1.2em;
-  padding-left: 1.4em;
+  display: grid;
+  gap: 0.8em;
+  margin: 0.6em 0 0.6em;
+}
 
-  li {
-    margin-bottom: 0.7em;
-    line-height: 1.5;
+.pub-card {
+  padding: 0.85em 1.1em;
+  border: 1px solid var(--global-border-color);
+  border-left: 3px solid var(--custom-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--custom-accent-soft);
+  transition: box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
+.pub-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.pub-card__type,
+.pub-card__badge {
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.pub-card__type {
+  border: 1px solid var(--custom-accent);
+  color: var(--custom-accent);
+}
+
+.pub-card__badge {
+  background: var(--custom-accent);
+  color: #fff;
+}
+
+.pub-card__title {
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--global-text-color);
+}
+
+.pub-card__authors {
+  margin-top: 0.3em;
+  font-size: 0.88em;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+
+  strong {
+    color: var(--global-text-color);
+  }
+}
+
+.pub-card__venue {
+  margin-top: 0.15em;
+  font-size: 0.85em;
+  font-style: italic;
+  color: var(--global-text-color-light);
+}
+
+.page__content p.pub-note {
+  margin: 0 0 1em;
+  font-size: 0.82em;
+  color: var(--global-text-color-light);
+}
+
+/* Others page: compact reviewer lists so each line fits */
+.page__content .service-list > ul {
+  margin-left: 0;
+  padding-left: 1.1em;
+
+  ul {
+    margin-top: 0.15em;
+    padding-left: 0.9em;
+    list-style: none;
   }
 
-  li::marker {
-    color: var(--custom-accent);
-    font-weight: 700;
+  ul li {
+    margin-bottom: 0.15em;
+    font-size: 0.92em;
+    color: var(--global-text-color-light);
   }
+}
+
+/* Sidebar photo at 48% of the template size (175px -> 84px) */
+.author__avatar img {
+  @include breakpoint($large) {
+    max-width: 84px;
+  }
+}
+
+/* No permalink icon next to section headings */
+.page__content :is(h1, h2, h3, h4, h5, h6)[id] > a[href^="#"]:empty {
+  display: none;
 }
